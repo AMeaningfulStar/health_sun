@@ -7,6 +7,9 @@ module.exports = {
         'transparent': 'rgba(255, 255, 255, 0.2)'
       }
     },
+    fontFamily: {
+      'logo': ['"otomanopee-one"', 'sans-serif'],
+    },
   },
   plugins: [],
 }
