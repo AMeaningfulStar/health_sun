@@ -10,9 +10,9 @@ const HeaderBottom = () => {
       </div>
       <button
         type='button'
-        className='absolute h-[39px] w-[113px] right-[15px] top-[70px] bg-[#F2F2F2] rounded-md hover:bg-[#E3E3E3]'
+        className='absolute h-[39px] w-[7.7vw] right-[15px] top-[70px] bg-[#F2F2F2] rounded-md hover:bg-[#E3E3E3]'
       >
-        <div className='flex flex-row items-center gap-[8px] absolute w-[90px] h-[15.5px] left-[15px] top-[13px]'>
+        <div className='flex flex-row items-center gap-[0.6vw] absolute w-[7.7vw] h-[15.5px] left-[1vw] top-[13px]'>
           <p className='text-[#DB8888] not-italic text-sm flex items-center order-0 flex-grow-0'>나의 프로필</p>
           <IoIosArrowDown className='text-[#5F647E] h-[31px] flex order-1 flex-grow-0'/>
         </div>

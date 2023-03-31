@@ -4,10 +4,10 @@ import HeaderBottom from './HeaderBottom';
 
 const Header = () => {
   return (
-    <div className='absolute w-[1102.5px] h-[117.5px] left-[219.5px]'>
+    <div className='absolute w-[75vw] h-[117.5px] left-[15vw]'>
       <HeaderTop />
       {/* header 경계선 */}
-      <div className='absolute w-[1102.5px] h-0 top-[55px] border-[0.5px] border-solid border-[#e5e7eb]'/>
+      <div className='absolute w-[75vw] h-0 top-[55px] border-[0.5px] border-solid border-[#e5e7eb]'/>
       <HeaderBottom />
     </div>
   )

@@ -10,10 +10,10 @@ const Login = () => {
       
       <div style={{ display: 'flex', width: '100%', height: '100%'}}>
 
-        <div style={{ width: '45%', height: '100%',}}>
+        <div style={{ width: '60vw', height: '100%',}}>
           
 
-          <div style={{ marginTop: '40%', marginLeft: '16%', fontFamily: 'Poppins',fontStyle: 'normal',
+          <div style={{ marginTop: '20%', marginLeft: '16%', fontFamily: 'Poppins',fontStyle: 'normal',
           fontWeight: 550, fontSize: '32px',lineHeight: '48px',color: '#000000',flex: 'none', order: 0, flexGrow: 0}}>
             Log In</div>
 
@@ -44,16 +44,23 @@ const Login = () => {
 
           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', 
             alignItems: 'center', height : '8%', width: '80%', color: '#FFFFFF', fontWeight: 550,
-            background: '#F88C70', borderRadius: '30px',marginLeft: '10%',}}>Log In</div>
+            background: '#F88C70', borderRadius: '30px',marginLeft: '10%',marginTop: '2%'}}>Log In</div>
           
-          <div style={{ width: '100%', height: '0px', left: '0px', top: '765.75px', border: '1px dashed #9A9797' , marginTop: '5%'}}></div>
+          <div style={{ display: 'flex', alignItems: 'center' , marginTop: '1%',fontWeight: 550, color: '#9A9797'}}>
+            <div style={{ width: '45%', border: '1.4px dashed #9A9797', marginRight: '2%' }}></div>
+            or
+            <div style={{ width: '50%', border: '1.4px dashed #9A9797', marginLeft: '2%'}}></div>
+          </div>
+
+          <div style={{boxSizing: 'border-box', width: '86.13px', height: '91.09px', left: '163.55px', top: '817.8px', border: '1px solid #FFCCBF'}}></div>
+          <div style={{boxSizing: 'border-box', position: 'absolute', width: '86.13px', height: '91.09px', left: '163.55px', top: '817.8px', border: '1px solid #FFCCBF'}}></div>
 
 
 
 
         </div>
 
-        <div style={{ width: '55%', height: '100%', backgroundImage: `url(${LoginImg})`,
+        <div style={{ width: '40vw', height: '100%', backgroundImage: `url(${LoginImg})`,
         backgroundSize: '100% 70%', backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat', backgroundColor: '#FED7E2'}}>
           
