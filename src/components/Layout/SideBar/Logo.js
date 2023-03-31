@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Logo = () => {
   return (
-    <Link className='flex flex-row items-center p-0 gap-[1vw] absolute left-[2vw]' to={'/'}>
+    <Link className='flex flex-row items-center p-0 gap-[15px] absolute left-[36px]' to={'/'}>
       <GiHealthNormal className='text-[#DB8888] text-lg'/>
       <p className='font-logo text-[#DB8888] not-italic text-lg'>Health sun</p>
     </Link>
