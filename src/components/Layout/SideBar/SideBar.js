@@ -4,8 +4,8 @@ import MenuList from './MenuList';
 
 const SideBar = () => {
   return (
-    <div className='absolute w-[15vw] h-[85vh] bg-white rounded-l-md border-r'>
-      <div className='absolute w-[14vw] h-[80vh] top-[2vh]'>
+    <div className='absolute w-[219.5px] h-[665.5px] bg-white rounded-l-md border-r'>
+      <div className='absolute w-[205px] h-[626.5px] top-[15px]'>
         <Logo />
         <MenuList />
       </div>
