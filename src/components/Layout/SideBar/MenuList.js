@@ -27,8 +27,8 @@ const MenuList = () => {
           <div className='text-[18px]'>{ icon }</div>
           <div className='text-[0.9rem] font-semibold leading-[47px]'>{ menuName }</div>
         </div>
-        <BsFillCircleFill className='text-white text-[37.58px] left-[11.5vw] top-[4.7px] relative' />
-        <FiArrowRight className='text-[#DB8888] text-[19.57px] left-[12.1vw] top-[-23px] relative' />
+       
+        <FiArrowRight className='text-[#DB8888] text-[25px] left-[12.1vw] top-[12px] relative' />
       </div>
     )
   }

@@ -2,6 +2,8 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 
 import Login from './components/Authentication/Login/Login';
+import Forgot from './components/Authentication/Login/Forgot';
+import Signup from './components/Authentication/Login/Signup';
 import Register from './components/Authentication/Register/Register';
 import Home from './components/PageComponent/Home/Home';
 import MedicalExamination from './components/PageComponent/Medical_Examination/MedicalExamination';
@@ -13,6 +15,8 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Login />} />
+      <Route path='/Forgot' element={<Forgot />} />
+      <Route path='/Signup' element={<Signup />} />
       <Route path='/register' element={<Register />} />
       <Route path='/home' element={<Home />} />
       <Route path='/medicalExamination' element={<MedicalExamination />} />

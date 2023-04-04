@@ -5,7 +5,7 @@ import Search from './search.png';
 import Twitter from './twitter.png';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
+const Signup = () => {
   return (
     <AuthenticationLayout>
       <div style={{ display: 'flex', width: '100%', height: '100%'}}>
@@ -16,27 +16,22 @@ const Login = () => {
 
           <div style={{ marginLeft: '14%', fontFamily: 'Poppins',fontStyle: 'normal',
           fontWeight: 550, fontSize: '32px',lineHeight: '48px',color: '#000000',flex: 'none', order: 0, flexGrow: 0}}>
-            Log In</div>
+            Sign Up</div>
 
-          <div style={{ width: '80%', height: '7%', marginLeft: '10%', marginTop: '4%', paddingLeft: '1.5%',
+          <div style={{ width: '80%', height: '7%', marginLeft: '10%', marginTop: '2%', paddingLeft: '1.5%',
+          border: '1px solid #AEAEAE', borderRadius: '20px',paddingTop: '1.5%' ,color: '#9A9797'}}>name</div>
+
+          <div style={{ width: '80%',height: '7%', marginLeft: '10%', marginTop: '2%', paddingLeft: '1.5%',
           border: '1px solid #AEAEAE', borderRadius: '20px',paddingTop: '1.5%' ,color: '#9A9797'}}>e-mail</div>
 
-          <div style={{ width: '80%',height: '7%', marginLeft: '10%', marginTop: '3%', paddingLeft: '1.5%',
+          <div style={{ width: '80%',height: '7%', marginLeft: '10%', marginTop: '2%', paddingLeft: '1.5%',
           border: '1px solid #AEAEAE', borderRadius: '20px',paddingTop: '1.5%' ,color: '#9A9797'}}>password</div>
+          
 
-          <div style={{ display: 'flex', alignItems: 'center',marginTop: '1%', fontFamily: 'Poppins', 
-            fontStyle: 'normal', fontWeight: 500, fontSize: '16px', lineHeight: '24px', color: '#9A9797' }}>
-            <input type="checkbox" style={{marginLeft: '11%',  boxSizing: 'border-box', border: '1px solid #9A9797',
-            borderRadius: '5px', width: '20px', height: '20px'
-            }}/>
-            <div style={{marginLeft: '1%'}}> Remember me </div>
-            <Link style={{marginLeft: '50%'}} to={'/forgot'}><div> Forgot password </div></Link>
-          </div>
-
-          <Link to={'/home'}>
+          <Link to={'/'}>
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', 
               alignItems: 'center', height : '8%', width: '80%', color: '#FFFFFF', fontWeight: 550,
-              background: '#F88C70', borderRadius: '30px',marginLeft: '10%',marginTop: '2%'}}>Log In</div>
+              background: '#F88C70', borderRadius: '30px',marginLeft: '10%',marginTop: '2%'}}>Create Account</div>
           </Link>
           
           <div style={{ display: 'flex', alignItems: 'center' , marginTop: '1%',fontWeight: 550, color: '#9A9797'}}>
@@ -67,4 +62,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Signup
