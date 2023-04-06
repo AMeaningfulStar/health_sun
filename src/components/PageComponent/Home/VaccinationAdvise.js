@@ -25,27 +25,27 @@ const VaccinationAdvise = () => {
           pagination={{ clickable: true }}
         >
           <SwiperSlide>
-            <div className='absolute w-[42vw] h-[20vh] left-[3vw] bg-[#FFFFFF] rounded-lg'>
+            <div className='absolute w-[42vw] h-[20vh] left-[3vw] bg-[#FFFFFF] rounded-lg border-[1px] border-[#EAEAEA]'>
               Slide 1
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className='absolute w-[42vw] h-[20vh] left-[3vw] bg-[#FFFFFF] rounded-lg'>
+            <div className='absolute w-[42vw] h-[20vh] left-[3vw] bg-[#FFFFFF] rounded-lg border-[1px] border-[#EAEAEA]'>
               Slide 2
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className='absolute w-[42vw] h-[20vh] left-[3vw] bg-[#FFFFFF] rounded-lg'>
+            <div className='absolute w-[42vw] h-[20vh] left-[3vw] bg-[#FFFFFF] rounded-lg border-[1px] border-[#EAEAEA]'>
               Slide 3
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className='absolute w-[42vw] h-[20vh] left-[3vw] bg-[#FFFFFF] rounded-lg'>
+            <div className='absolute w-[42vw] h-[20vh] left-[3vw] bg-[#FFFFFF] rounded-lg border-[1px] border-[#EAEAEA]'>
               Slide 4
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className='absolute w-[42vw] h-[20vh] left-[3vw] bg-[#FFFFFF] rounded-lg'>
+            <div className='absolute w-[42vw] h-[20vh] left-[3vw] bg-[#FFFFFF] rounded-lg border-[1px] border-[#EAEAEA]'>
               Slide 5
             </div>
           </SwiperSlide>
