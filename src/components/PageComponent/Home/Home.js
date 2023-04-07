@@ -2,6 +2,8 @@ import React from 'react';
 
 import MainLayout from '../../Layout/MainLayout';
 import MyHealthCondition from './MyHealthCondition';
+import MedicineInfo from './MedicineInfo';
+import VaccinationAdvise from './VaccinationAdvise';
 
 const Home = () => {
   const ContentBox = ({ width, height, left, top, children }) => {
@@ -23,29 +25,15 @@ const Home = () => {
     <MainLayout>
       <MyHealthCondition />
       <ContentBox
-        width = {24}
+        width = {22}
         height = {35}
-        left = {65}
+        left = {67}
         top = {15.5}
       >
         예약 정보
       </ContentBox>
-      <ContentBox
-        width = {48}
-        height = {27}
-        left = {16}
-        top = {56.5}
-      >
-        예방접종 추천
-      </ContentBox>
-      <ContentBox
-        width = {24}
-        height = {32}
-        left = {65}
-        top = {51.5}
-      >
-        내복약 정보
-      </ContentBox>
+      <VaccinationAdvise />
+      <MedicineInfo />
     </MainLayout>
   )
 }

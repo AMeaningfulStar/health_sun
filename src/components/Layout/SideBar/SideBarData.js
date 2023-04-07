@@ -19,12 +19,12 @@ const SideBarData = [
   {
     menuName: '예방 접종',
     icon: <BiInjection />,
-    path: '/medicine'
+    path: '/vaccination'
   },
   {
     menuName: '복약 정보',
     icon: <RiCapsuleFill />,
-    path: '/vaccination'
+    path: '/medicine'
   },
   {
     menuName: '병원/약국 찾기',
