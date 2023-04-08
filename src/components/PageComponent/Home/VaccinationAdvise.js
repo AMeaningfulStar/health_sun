@@ -12,7 +12,7 @@ const VaccinationAdvise = () => {
 
   return (
     <div className='bg-[#FBF7F4] w-[50vw] h-[27vh] rounded-lg absolute left-[16vw] top-[56.5vh]'>
-      <div className='absolute left-[1.5vw] top-[2vh]'>
+      <div className='absolute left-[1vw] top-[2vh]'>
         <p className='text-[16px] font-bold'>예방 접종 추천</p>
       </div>
       <div className='absolute w-[48vw] h-[20vh] top-[5.5vh] left-[1vw]'>

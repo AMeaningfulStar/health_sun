@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const MyHealthCondition = () => {
   return (
     <div className='bg-[#FBF7F4] w-[50vw] h-[40vh] rounded-lg absolute left-[16vw] top-[15.5vh]' >
-      <div className='absolute left-[1.5vw] top-[2vh]'>
+      <div className='absolute left-[1vw] top-[2vh]'>
         <p className='text-[16px] font-bold'>나의 건강 상태</p>
       </div>
       <div className='absolute h-[32vh] w-[48vw] top-[6vh] left-[1vw] overflow-scroll'>
