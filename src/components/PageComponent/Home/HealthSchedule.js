@@ -16,7 +16,7 @@ const HealthSchedule = () => {
   const findDate = totalDate.indexOf(DATE.getDate());
   const lastDate = totalDate.indexOf(1);
   const firstDate = totalDate.indexOf(1, 7)-1;
-  
+
   const changeDate = (month) => {
     //이전 날짜
     let PVLastDate = new Date(YEAR, month - 1, 0).getDate();
@@ -63,7 +63,7 @@ const HealthSchedule = () => {
   };
 
   return (
-    <div className='bg-[#FBF7F4] w-[22vw] h-[35vh] rounded-lg absolute left-[67vw] top-[15.5vh]'>
+    <div className='bg-[#FBF7F4] w-[22vw] h-[40vh] rounded-lg absolute left-[67vw] top-[15.5vh]'>
       <div className='absolute left-[1vw] top-[2vh]'>
         <p className='text-[16px] font-bold'>건강 일정</p>
       </div>
@@ -85,7 +85,7 @@ const HealthSchedule = () => {
           return <p className='w-[2vw]' key={idx}>{day}</p>
         })}
       </div>
-      <div className='absolute w-[20vw] h-[22vh] left-[1vw] top-[12vh] flex flex-row flex-wrap gap-x-[1vw] text-center'>
+      <div className='absolute w-[20vw] h-[26vh] left-[1vw] top-[12vh] flex flex-row flex-wrap gap-x-[1vw] gap-y-[1.5vh] text-center'>
         { totalDate.map((date, idx) => {
           switch(MONTH){
             case month:
