@@ -8,7 +8,7 @@ import HealthSchedule from './HealthSchedule';
 
 const Home = () => {
   return (
-    <MainLayout>
+    <MainLayout isMain={true}>
       <MyHealthCondition />
       <HealthSchedule />
       <VaccinationAdvise />
