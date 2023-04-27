@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import MedicineModal from './MedicineModal';
 
 import { BiSearch } from 'react-icons/bi';
@@ -21,6 +22,7 @@ const MedicineSearchBox = () => {
       <div className='absolute w-[auto] top-[6.5vh] left-[1vw] '>
         <button className='text-[15px] text-[#969595] font-semibold hover:text-[#707070]' onClick={() => setIsShow(true)}>[모양으로 검색하기]</button>
         <MedicineModal isShow={ isShow } setIsShow={ setIsShow } />
+
       </div>
     </div>
   )
