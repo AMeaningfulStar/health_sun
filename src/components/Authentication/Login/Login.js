@@ -1,8 +1,10 @@
 import React from 'react';
 import AuthenticationLayout from '../../Layout/AuthenticationLayout';
 import LoginImg from './LoginImg.png';
+
 import Search from './search.png';
 import Twitter from './twitter.png';
+
 import { Link } from 'react-router-dom';
 
 const Login = () => {

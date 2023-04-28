@@ -1,5 +1,6 @@
 import React from 'react';
-import { IoIosArrowDown } from 'react-icons/io';
+import { AiOutlineRight } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 const HeaderBottom = () => {
   return (
@@ -16,7 +17,7 @@ const HeaderBottom = () => {
           <p className='text-[#DB8888] not-italic text-sm flex items-center order-0 flex-grow-0'>나의 프로필</p>
           <IoIosArrowDown className='text-[#5F647E] h-[31px] flex order-1 flex-grow-0'/>
         </div>
-      </button>
+      </Link>
     </div>
   )
 }

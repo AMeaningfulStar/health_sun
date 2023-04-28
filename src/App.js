@@ -10,6 +10,7 @@ import MedicalExamination from './components/PageComponent/Medical_Examination/M
 import Medicine from './components/PageComponent/Medicine/Medicine';
 import Vaccination from './components/PageComponent/Vaccination/Vaccination';
 import Position from './components/PageComponent/Position/Position';
+import MyPage from './components/PageComponent/MyPage/MyPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path='/medicine' element={<Medicine />} />
       <Route path='/vaccination' element={<Vaccination />} />
       <Route path='/position' element={<Position />} />
+      <Route path='/myPage' element={<MyPage />} />
     </Routes>
   );
 }
