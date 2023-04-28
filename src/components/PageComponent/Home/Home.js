@@ -1,5 +1,4 @@
 import React from 'react';
-
 import MainLayout from '../../Layout/MainLayout';
 import MyHealthCondition from './MyHealthCondition';
 import MedicineInfo from './MedicineInfo';
