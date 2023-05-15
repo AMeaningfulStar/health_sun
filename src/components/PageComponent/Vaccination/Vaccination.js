@@ -1,5 +1,6 @@
 import React from 'react';
 import MainLayout from '../../Layout/MainLayout';
+import VaccinationData from './VaccinationData';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from "swiper";
@@ -19,22 +20,15 @@ const Vaccination = () => {
         slidesPerView={1}
         navigation
         pagination={{ clickable: true }}
-      >
-        <SwiperSlide>
-          <div className='absolute w-[53vw] h-[56vh] top-[6vh] left-[8vw] bg-[#FFFFFF] rounded-lg drop-shadow-lg'>
-          Slide 1
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='absolute w-[53vw] h-[56vh] top-[6vh] left-[8vw] bg-[#FFFFFF] rounded-lg drop-shadow-lg'>
-          Slide 1
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='absolute w-[53vw] h-[56vh] top-[6vh] left-[8vw] bg-[#FFFFFF] rounded-lg drop-shadow-lg'>
-          Slide 1
-          </div>
-        </SwiperSlide>
+        loop={true}
+      > 
+        {VaccinationData.map((data, idx) => {
+          return(
+            <SwiperSlide key={idx}>
+              <img alt={data.name} src={data.img} className='absolute w-[53vw] h-[56vh] top-[6vh] left-[8vw] rounded-lg drop-shadow-lg' />
+            </SwiperSlide>
+          )
+        })}
       </Swiper>
     </MainLayout>
   )
