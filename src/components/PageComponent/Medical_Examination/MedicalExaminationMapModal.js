@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import KakaoMap from '../../KakaoMap/KakaoMap';
+import KakaoMap from '../../Kakao/KakaoMap';
 
 import { AiOutlineClose } from 'react-icons/ai';
 

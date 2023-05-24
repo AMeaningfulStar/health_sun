@@ -1,6 +1,6 @@
 import React from 'react';
 import MainLayout from '../../Layout/MainLayout';
-import VaccinationData from './VaccinationData';
+import VaccinationData from '../Vaccination/VaccinationData'; // 임시
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from "swiper";
@@ -10,18 +10,18 @@ import 'swiper/css/pagination';
 
 SwiperCore.use([Navigation, Pagination]);
 
-const Vaccination = () => {
+const Supplements = () => {
   return (
     <MainLayout>
       <Swiper
         className='w-[70vw] h-[68vh]'
-        style={{'--swiper-navigation-size' : '35px', '--swiper-theme-color'  : 'black', 'zIndex' : 0 }}
+        style={{'--swiper-navigation-size' : '35px', '--swiper-theme-color'  : 'black'}}
         spaceBetween={50}
         slidesPerView={1}
         navigation
         pagination={{ clickable: true }}
         loop={true}
-      > 
+      >
         {VaccinationData.map((data, idx) => {
           return(
             <SwiperSlide key={idx}>
@@ -34,4 +34,4 @@ const Vaccination = () => {
   )
 }
 
-export default Vaccination
+export default Supplements

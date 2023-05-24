@@ -18,8 +18,8 @@ const VaccinationAdvise = () => {
       </div>
       <div className='absolute w-[49vw] h-[23vh] top-[5.5vh] left-[1vw]'>
         <Swiper
-          className='w-[100%] h-[100%] '
-          style={{'--swiper-navigation-size' : '25px', '--swiper-theme-color'  : 'black'}}
+          className='w-[100%] h-[100%]'
+          style={{'--swiper-navigation-size' : '25px', '--swiper-theme-color'  : 'black', 'zIndex' : 0 }}
           spaceBetween={50}
           slidesPerView={1}
           navigation

@@ -4,6 +4,7 @@ import { TiHome } from 'react-icons/ti';
 import { MdInsertChart, MdLocalHospital } from 'react-icons/md';
 import { BiInjection } from 'react-icons/bi';
 import { RiCapsuleFill } from 'react-icons/ri';
+import { TbHealthRecognition } from 'react-icons/tb';
 
 const SideBarData = [
   {
@@ -20,6 +21,11 @@ const SideBarData = [
     menuName: '예방 접종',
     icon: <BiInjection />,
     path: '/vaccination'
+  },
+  {
+    menuName: '영양제',
+    icon: <TbHealthRecognition />,
+    path: '/supplements'
   },
   {
     menuName: '복약 정보',
