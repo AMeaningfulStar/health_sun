@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import MainLayout from '../../Layout/MainLayout';
-import KakaoMap from '../../KakaoMap/KakaoMap';
+import KakaoMap from '../../Kakao/KakaoMap';
 
 const Position = () => {
   const [ isShow, setIsShow ] = useState(false);

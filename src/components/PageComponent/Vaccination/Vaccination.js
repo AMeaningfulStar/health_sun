@@ -15,7 +15,7 @@ const Vaccination = () => {
     <MainLayout>
       <Swiper
         className='w-[70vw] h-[68vh]'
-        style={{'--swiper-navigation-size' : '35px', '--swiper-theme-color'  : 'black'}}
+        style={{'--swiper-navigation-size' : '35px', '--swiper-theme-color'  : 'black', 'zIndex' : 0 }}
         spaceBetween={50}
         slidesPerView={1}
         navigation
