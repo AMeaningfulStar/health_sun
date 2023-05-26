@@ -40,7 +40,7 @@ const MyPage = ({ isShow, setIsShow }) => {
       if (data.val() !== null) {
         setUserArea(data.val().area)
       } else {
-        alert('정보를 불러오지 못했습니다')
+        
       }
     })
   }
@@ -123,7 +123,7 @@ const MyPage = ({ isShow, setIsShow }) => {
             <input
               type="text"
               name="userName"
-              value={user.displayName}
+              value={user && user.displayName}
               readOnly
               className="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#DB8888] focus:shadow-lg bg-white text-black"
             />
@@ -150,7 +150,7 @@ const MyPage = ({ isShow, setIsShow }) => {
             <input
               type="email"
               name="userEmail"
-              value={user.email}
+              value={user && user.email}
               readOnly
               className="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#DB8888] focus:shadow-lg bg-white text-black"
             />
