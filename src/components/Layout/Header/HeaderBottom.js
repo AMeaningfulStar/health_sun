@@ -39,7 +39,7 @@ const HeaderBottom = () => {
     }, 8000);
 
     return (() => clearInterval(timer))
-  },[])
+  })
   
 
   return (

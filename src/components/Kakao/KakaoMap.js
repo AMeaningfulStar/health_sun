@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect} from 'react';
+import Hos from '../DesignFile/Hospital.png';
 
-
-const KakaoMap = ({ children }) => {
+const KakaoMap = ({cx=37.88747039336736 , cy=127.73836119962642}) => {
   // 카카오 맵 로드를 위한 함수
   const loadKakaoMapScript = (callback) => {
     if (window.kakao && window.kakao.maps) {
@@ -23,8 +23,9 @@ const KakaoMap = ({ children }) => {
 
   useEffect(() => {
     loadKakaoMapScript(() => {
+      
       const map = new window.kakao.maps.Map(document.getElementById('map'), {
-        center: new window.kakao.maps.LatLng(37.88747039336736, 127.73836119962642),
+        center: new window.kakao.maps.LatLng(cx, cy),
         level: 3,
       });
 
@@ -37,13 +38,13 @@ const KakaoMap = ({ children }) => {
       map.addControl(zoomControl, window.kakao.maps.ControlPosition.RIGHT);
 
       // 마커 이미지 정보
-      var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png'; // 마커이미지의 주소입니다    
+      var imageSrc = Hos; // 마커이미지의 주소입니다    
       var imageSize = new window.kakao.maps.Size(64, 69); // 마커이미지의 크기입니다
       var imageOption = {offset: new window.kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
       var markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption); // 마커의 이미지 정보를 가지고 있는 마커이미지를 생성합니다
 
       // 마커 위치 정보
-      var markerPosition = new window.kakao.maps.LatLng(37.88747039336736, 127.73836119962642); // 마커가 표시될 위치입니다
+      var markerPosition = new window.kakao.maps.LatLng(cx, cy); // 마커가 표시될 위치입니다
 
       // 마커 생성
       var marker = new window.kakao.maps.Marker({
@@ -86,7 +87,7 @@ const KakaoMap = ({ children }) => {
 
   return (
     <div id="map" className='w-[100%] h-[100%]'>
-      { children }
+      
       <button id="panToButton">Pan To</button>
     </div>
   )

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import { auth } from './firebase';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { clearUser, setUser } from './redux/actions/user_action';
@@ -30,6 +30,15 @@ function App(props) {
 
         // 로그인한 user 정보를 redux에 저장
         dispatch(setUser(user));
+        if(!auth.currentUser.emailVerified){
+          alert('이메일 인증 후 로그인이 가능합니다');
+  
+          navigate("/");
+
+          // 로그아웃 시 저장된 user 정보를 redux에서 지움
+          dispatch(clearUser());
+        }
+
       } else {
         navigate("/");
 

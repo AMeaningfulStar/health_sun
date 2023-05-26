@@ -16,10 +16,10 @@ import { useDaumPostcodePopup } from 'react-daum-postcode'
 const Register = () => {
   const navigate = useNavigate(); // 강제 경로 이동
   const { register, watch, formState: { errors }, handleSubmit } = useForm();
-  const [ errorFromSubmit, setErrorFromSubmit ] = useState("");
-  const [ isPasswordShow , setIsPasswordShow ] = useState(false);
-  const [ loading, setLoading ] = useState(false);
-  const [ userArea, setUserArea ] = useState('');
+  const [errorFromSubmit, setErrorFromSubmit] = useState("");
+  const [isPasswordShow, setIsPasswordShow] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [userArea, setUserArea] = useState('');
 
   // 주소 찾기 팝업
   const scriptURL = 'https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
@@ -35,10 +35,10 @@ const Register = () => {
 
   const password = useRef();
   password.current = watch("password");
-  
+
   // 비밀번호 입력값 노출에 대한 이벤트 함수
   const PasswordShowBtn = () => {
-    if(isPasswordShow){
+    if (isPasswordShow) {
       return (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -55,27 +55,26 @@ const Register = () => {
     )
   }
 
-  const onSubmit = async(data) => {
+  const onSubmit = async (data) => {
     try {
       setLoading(true);
-      console.log(data)
 
       let createdUser = await createUserWithEmailAndPassword(auth, data.userEmail, data.password);
-      
+
       await sendEmailVerification(auth.currentUser);
-      
+
       await updateProfile(auth.currentUser, {
         displayName: data.userName,
-        photoURL: `http://gravatar.com/avatar/${md5(createdUser.user.email)}?d=identicon`,
-        area: userArea
+        photoURL: `http://gravatar.com/avatar/${md5(createdUser.user.email)}?d=identicon`
       })
 
       //Firebase 데이터베이스에 저장해주기
       // 데이터베이스(getDatabase()) 주소(ref())안에 해당 경로(`users/${ createdUser.user.uid }`)에 데이터를 저장(set())한다.
-      set(ref(getDatabase(), `users/${ createdUser.user.uid }`),{
+      set(ref(getDatabase(), `users/${createdUser.user.uid}`), {
         name: createdUser.user.displayName,
         Image: createdUser.user.photoURL,
-        area: userArea
+        area: userArea,
+        age: data.userAge
       })
 
       setLoading(false);
@@ -91,7 +90,7 @@ const Register = () => {
       }, 5000);
     }
   }
-  
+
   return (
     <AuthenticationLayout>
       <div className="flex flex-col text-left justify-center items-center" style={{ height: '100%' }}>
@@ -114,10 +113,12 @@ const Register = () => {
                 로그인 하러 가기
               </Link>
             </p>
-            <form className="mb-9 mt-5 text-sm" onSubmit={ handleSubmit(onSubmit) }>
+            <form className="mb-9 mt-5 text-sm" onSubmit={handleSubmit(onSubmit)}>
               <div className="flex flex-col my-1">
-                <p className="text-gray-700">
+                <p className="text-gray-700 flex flex-row gap-2">
                   이름
+                  {errors.userName && errors.userName.type === "required" && <p className='text-[#DB8888] text-xs'>이름을 입력바랍니다</p>}
+                  {errors.userName && errors.userName.type === "maxLength" && <p className='text-[#DB8888] text-xs'>입력할 수 있는 최대값을 초과했습니다</p>}
                 </p>
                 <input
                   type="text"
@@ -126,12 +127,25 @@ const Register = () => {
                   className="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#DB8888] focus:shadow-lg bg-white text-black"
                   {...register("userName", { required: true, maxLength: 10 })}
                 />
-                {errors.userName && errors.userName.type === "required" && <p className='text-[#DB8888] text-xs'>이름을 입력바랍니다</p>}
-                {errors.userName && errors.userName.type === "maxLength" && <p className='text-[#DB8888] text-xs'>입력할 수 있는 최대값을 초과했습니다</p>}
+              </div><div className="flex flex-col my-1">
+                <p className="text-gray-700 flex flex-row gap-2">
+                  출생연도(예시:2021)
+                  {errors.userAge && errors.userAge.type === "required" && <p className='text-[#DB8888] text-xs'>생년월일을 입력바랍니다</p>}
+                  {errors.userAge && errors.userAge.type === "maxLength" && <p className='text-[#DB8888] text-xs'>정확한 생년월일을 입력바랍니다</p>}
+                  {errors.userAge && errors.userAge.type === "minLength" && <p className='text-[#DB8888] text-xs'>정확한 생년월일을 입력바랍니다</p>}
+                </p>
+                <input
+                  type="text"
+                  name="userAge"
+                  placeholder="Please insert your name"
+                  className="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#DB8888] focus:shadow-lg bg-white text-black"
+                  {...register("userAge", { required: true, maxLength: 4, minLength: 4 })}
+                />
               </div>
               <div className="flex flex-col my-1">
-                <p className="text-gray-700">
+                <p className="text-gray-700 flex flex-row gap-2">
                   주소
+                  {errors.userArea && <p className='text-[#DB8888] text-xs'>주소를 입력바랍니다</p>}
                 </p>
                 <input
                   name="userArea"
@@ -142,11 +156,11 @@ const Register = () => {
                   {...register("userArea", { required: true })}
                   readOnly
                 />
-                {errors.userArea && <p className='text-[#DB8888] text-xs'>주소를 입력바랍니다</p>}
               </div>
               <div className="flex flex-col my-1">
-                <p className="text-gray-700">
+                <p className="text-gray-700 flex flex-row gap-2">
                   Email
+                  {errors.userEmail && <p className='text-[#DB8888] text-xs'>이메일을 입력바랍니다</p>}
                 </p>
                 <input
                   type="email"
@@ -155,15 +169,17 @@ const Register = () => {
                   className="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#DB8888] focus:shadow-lg bg-white text-black"
                   {...register("userEmail", { required: true, pattern: /^\S+@\S+$/i })}
                 />
-                {errors.userEmail && <p className='text-[#DB8888] text-xs'>이메일을 입력바랍니다</p>}
-              </div> 
+              </div>
               <div className="flex flex-col my-1">
-                <p className="text-gray-700">
+                <p className="text-gray-700 flex flex-row gap-2">
                   비밀번호
+                  {errors.password && errors.password.type === 'pattern' && <p className='text-[#DB8888] text-xs'>하나 이상의 문자와 하나 이상의 숫자를 포함하여 6자 이상 입력바랍니다</p>}
+                  {errors.password && errors.password.type === "required" && <p className='text-[#DB8888] text-xs'>비밀번호를 입력바랍니다</p>}
+                  {errors.password && errors.password.type === "minLength" && <p className='text-[#DB8888] text-xs'>비밀번호의 길이는 6자 이상이어야 합니다</p>}
                 </p>
                 <div className="relative flex items-center mt-2">
                   <input
-                    type={ isPasswordShow ? 'text': 'password'}
+                    type={isPasswordShow ? 'text' : 'password'}
                     name="password"
                     id="password"
                     placeholder="Please insert your password"
@@ -174,17 +190,16 @@ const Register = () => {
                     <PasswordShowBtn />
                   </button>
                 </div>
-                {errors.password && errors.password.type === 'pattern' && <p className='text-[#DB8888] text-xs'>하나 이상의 문자와 하나 이상의 숫자를 포함하여 6자 이상 입력바랍니다</p>}
-                {errors.password && errors.password.type === "required" && <p className='text-[#DB8888] text-xs'>비밀번호를 입력바랍니다</p>}
-                {errors.password && errors.password.type === "minLength" && <p className='text-[#DB8888] text-xs'>비밀번호의 길이는 6자 이상이어야 합니다</p>}
               </div>
               <div className="flex flex-col my-1">
-                <p className="text-gray-700">
+                <p className="text-gray-700 flex flex-row gap-2">
                   비밀번호 확인
+                  {errors.password_confirm && errors.password_confirm.type === "required" && <p className='text-[#DB8888] text-xs'>비밀번호 확인을 입력바랍니다</p>}
+                  {errors.password_confirm && errors.password_confirm.type === "validate" && <p className='text-[#DB8888] text-xs'>비밀번호가 일치하지 않습니다</p>}
                 </p>
                 <div className="relative flex items-center mt-2">
                   <input
-                    type={ isPasswordShow ? 'text': 'password'}
+                    type={isPasswordShow ? 'text' : 'password'}
                     name="password_confirm"
                     placeholder="Please insert your password again"
                     className="flex-1 border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#DB8888] focus:shadow-lg bg-white text-black"
@@ -192,15 +207,13 @@ const Register = () => {
                       required: true,
                       validate: (value) =>
                         value === password.current
-                      })
+                    })
                     }
                   />
                   <button onClick={() => setIsPasswordShow(!isPasswordShow)} type="button" className="absolute right-2 bg-transparent flex items-center justify-center text-gray-700">
                     <PasswordShowBtn />
                   </button>
                 </div>
-                {errors.password_confirm && errors.password_confirm.type === "required" && <p className='text-[#DB8888] text-xs'>비밀번호 확인을 입력바랍니다</p>}
-                {errors.password_confirm && errors.password_confirm.type === "validate" && <p className='text-[#DB8888] text-xs'>비밀번호가 일치하지 않습니다</p>}
               </div>
               <div className="flex items-center">
                 <input
@@ -214,7 +227,7 @@ const Register = () => {
                 </p>
               </div>
               {errors.agree && <p className='text-[#DB8888] text-xs'>약관 및 개인 정보 보호 정책에 동의바랍니다</p>}
-              {errorFromSubmit && <p>{errorFromSubmit}</p>} 
+              {errorFromSubmit && <p>{errorFromSubmit}</p>}
 
               <div id="button" className="flex flex-col w-full my-5">
                 <button
