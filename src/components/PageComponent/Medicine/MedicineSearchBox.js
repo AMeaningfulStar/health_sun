@@ -13,7 +13,7 @@ const MedicineSearchBox = () => {
         <input
           type='text'
           className='w-[66vw] h-[4vh] rounded-sm border-[1px] border-solid border-[#D2D2D2] text-[#B0B0B0] pl-[1vw]'
-          value={'약 이름으로 검색하세요'}
+          placeholder='약 이름으로 검색하세요'
         />
         <button className='w-[3vw] bg-[#DB8888] rounded-sm'>
           <BiSearch className='w-[100%] text-[20px] text-[#FFFFFF]'/>

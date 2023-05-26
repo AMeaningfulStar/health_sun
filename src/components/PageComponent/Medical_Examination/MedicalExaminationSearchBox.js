@@ -10,8 +10,13 @@ const MedicalExaminationSearchBox = () => {
   const SeletBox = () => {
     if(isShowSelect){
       return(
-        <div className='absolute w-[32vw] h-[30vh] top-[6vh] z-10 rounded-md border-[1px] bg-[#FFFFFF]'>
-          
+        <div className='absolute w-[25vw] h-[30vh] top-[6vh] z-10 rounded-md border-[1px] bg-[#FFFFFF] flex flex-row'>
+          <div className='w-[50%] h-auto mt-1 overflow-scroll'>
+            <p className='w-auto h-[4vh] leading-[4vh] text-center font-medium hover:bg-slate-100'>서울</p>
+          </div>
+          {/* <div className='w-[50%] h-auto mt-1 overflow-scroll bg-slate-300'>
+
+          </div> */}
         </div>
       )
     }
@@ -26,7 +31,7 @@ const MedicalExaminationSearchBox = () => {
         > 
           <div className='flex flex-row gap-[5vw]'>
             <FaMapMarkerAlt className='text-[20px] text-[#465F85] ml-[2vw]' />
-            <p>시/도  &gt;  시/군/구</p>
+            <p className='font-medium'>시/도  &gt;  시/군/구</p>
             <AiOutlineDown className='text-[18px] h-[3vh] ml-[2vw]' />
           </div>
         </button>

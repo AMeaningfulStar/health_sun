@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 
-const KakaoMap = ({ children }) => {
+const KakaoMap = () => {
   // 카카오 맵 로드를 위한 함수
   const loadKakaoMapScript = (callback) => {
     if (window.kakao && window.kakao.maps) {
@@ -86,7 +86,6 @@ const KakaoMap = ({ children }) => {
 
   return (
     <div id="map" className='w-[100%] h-[100%]'>
-      { children }
       <button id="panToButton">Pan To</button>
     </div>
   )
