@@ -4,7 +4,8 @@ import KakaoMap from '../../Kakao/KakaoMap';
 
 import { AiOutlineClose } from 'react-icons/ai';
 
-const MedicalExaminationMapModal = ({ isShow, setIsShow }) => {
+const MedicalExaminationMapModal = ({ isShow, setIsShow ,  cxVl, cyVl}) => {
+  
   return (
     <ReactModal
       isOpen={isShow}
@@ -18,7 +19,7 @@ const MedicalExaminationMapModal = ({ isShow, setIsShow }) => {
         </button>
       </div>
       <div className='absolute w-[33vw] h-[71vh] left-[1vw] top-[7vh] rounded-md bg-[#FFFFFF] border'>
-        <KakaoMap />
+        <KakaoMap cx={cxVl} cy={cyVl}/>
       </div>
     </ReactModal>
   )
