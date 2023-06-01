@@ -36,15 +36,15 @@ const MenuList = () => {
   return (
     <div className='absolute w-[100%] top-[45px]'>
       {
-        SideBarData.map((item) => {
+        SideBarData.map((item, idx) => {
           if(location.pathname === item.path){
             return(
-              <MenuFocus icon={ item.icon } menuName={ item.menuName } />
+              <MenuFocus key={idx} icon={ item.icon } menuName={ item.menuName } />
             )
           }
           else {
             return(
-              <Menu icon={ item.icon } menuName={ item.menuName } path={ item.path} />
+              <Menu key={idx} icon={ item.icon } menuName={ item.menuName } path={ item.path} />
             )
           }
         })

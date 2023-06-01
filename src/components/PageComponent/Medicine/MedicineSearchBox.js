@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, us } from 'react';
 
 import MedicineModal from './MedicineModal';
 
 import { BiSearch } from 'react-icons/bi';
 
-const MedicineSearchBox = () => {
+const MedicineSearchBox = ({handleSearchClick}) => {
   const [ isShow, setIsShow ] = useState(false);
+
+  const closeSearchBox = () => {
+    setIsShow(false)
+    handleSearchClick()
+  }
 
   return (
     <div className='absolute w-[71.5vw] h-[11vh] left-[1vw] top-[2vh] rounded-md bg-[#FFFFFF]'>
@@ -21,7 +26,7 @@ const MedicineSearchBox = () => {
       </div>
       <div className='absolute w-[auto] top-[6.5vh] left-[1vw] '>
         <button className='text-[15px] text-[#969595] font-semibold hover:text-[#707070]' onClick={() => setIsShow(true)}>[모양으로 검색하기]</button>
-        <MedicineModal isShow={ isShow } setIsShow={ setIsShow } />
+        <MedicineModal isShow={ isShow } setIsShow={ setIsShow } closeSearchBox={closeSearchBox}/>
 
       </div>
     </div>
