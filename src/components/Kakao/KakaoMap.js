@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
-
-const KakaoMap = () => {
+const KakaoMap = ({cxVl = 37.88747039336736, cyVl = 127.73836119962642, imgData = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png'}) => {
   // 카카오 맵 로드를 위한 함수
   const loadKakaoMapScript = (callback) => {
     if (window.kakao && window.kakao.maps) {
@@ -24,8 +23,8 @@ const KakaoMap = () => {
   useEffect(() => {
     loadKakaoMapScript(() => {
       const map = new window.kakao.maps.Map(document.getElementById('map'), {
-        center: new window.kakao.maps.LatLng(37.88747039336736, 127.73836119962642),
-        level: 3,
+        center: new window.kakao.maps.LatLng(cxVl, cyVl),
+        level: 4,
       });
 
       // 주소-좌표 변환 객체를 생성합니다
@@ -37,13 +36,13 @@ const KakaoMap = () => {
       map.addControl(zoomControl, window.kakao.maps.ControlPosition.RIGHT);
 
       // 마커 이미지 정보
-      var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png'; // 마커이미지의 주소입니다    
-      var imageSize = new window.kakao.maps.Size(64, 69); // 마커이미지의 크기입니다
+      var imageSrc = imgData; // 마커이미지의 주소입니다    
+      var imageSize = new window.kakao.maps.Size(50, 52); // 마커이미지의 크기입니다
       var imageOption = {offset: new window.kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
       var markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption); // 마커의 이미지 정보를 가지고 있는 마커이미지를 생성합니다
 
       // 마커 위치 정보
-      var markerPosition = new window.kakao.maps.LatLng(37.88747039336736, 127.73836119962642); // 마커가 표시될 위치입니다
+      var markerPosition = new window.kakao.maps.LatLng(cxVl, cyVl); // 마커가 표시될 위치입니다
 
       // 마커 생성
       var marker = new window.kakao.maps.Marker({
@@ -75,7 +74,7 @@ const KakaoMap = () => {
 
       // 이동할 위도, 경도를 생성하는 함수
       const panTo = () => {
-        const moveLatLon = new window.kakao.maps.LatLng(37.88747039336736, 127.73836119962643);
+        const moveLatLon = new window.kakao.maps.LatLng(cxVl, cyVl);
         map.panTo(moveLatLon);
       };
 

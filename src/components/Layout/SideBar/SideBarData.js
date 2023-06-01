@@ -13,7 +13,7 @@ const SideBarData = [
     path: '/home'
   },
   {
-    menuName: '건강 검진',
+    menuName: '건강검진 기관',
     icon: <MdInsertChart />,
     path: '/medicalExamination'
   },

@@ -74,7 +74,35 @@ const Register = () => {
         name: createdUser.user.displayName,
         Image: createdUser.user.photoURL,
         area: userArea,
-        age: data.userAge
+        age: data.userAge,
+        supplements: {
+          childrenAndTeenagers: {
+            vitaminA: false,
+            vitaminB: false,
+            vitaminC: false,
+            calcium: false,
+            zinc: false // 아연
+          },
+          youngAdults: {
+            vitaminB1: false,
+            vitaminB5: false,
+            vitaminB6: false,
+            B12: false
+          },
+          middleAged: {
+            vitaminC: false,
+            calcium: false,
+            omega3: false,
+            coenzymeQ10: false,
+            magnesium: false
+          },
+          seniors: {
+            lutein: false,
+            omega3: false,
+            selenium: false,
+            chlorella: false
+          }
+        }
       })
 
       setLoading(false);
